@@ -1,0 +1,36 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active">Listado de Personas</li>
+    </ol>
+    <ol class="breadcrumb">
+      <button (click)="createPersona()" class="btn btn-primary">Nuevo Registro</button>
+    </ol>
+</nav>
+
+<div class="card" *ngIf="personas.length > 0">
+    <div class="table-responsive">
+      <table class="table table-centered table-hover mt-2" id="datatable">
+        <thead>
+          <tr>
+            <th class="border-top-0" scope="col">Id</th>
+            <th class="border-top-0" scope="col">Nombres Completos</th>
+            <th class="border-top-0" scope="col">Edad</th>
+            <th class="border-top-0" scope="col" style="width:120px"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of personas" >
+  
+            <td>{{persona.id}}</td>
+            <td>{{persona.nombresCompletos}}</td>
+            <td>{{persona.edad}}</td>
+            <td style="white-space: nowrap">
+              <button (click)="editPersona(persona.id)" class="btn btn-secondary">Editar</button>
+              <button (click)="deletePersona(persona.id)"  class="btn btn-danger">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
